@@ -1,0 +1,6 @@
+baseURL = 'https://tony6688.github.io/ztonyhugo/'
+languageCode = 'en-us'
+title = 'ztonyhugo'
+theme = 'PaperMod'
+
+enableEmoji = true

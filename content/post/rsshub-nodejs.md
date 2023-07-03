@@ -7,7 +7,7 @@ TocOpen: true # 展开 Table Of Content
 ---
 
 ## 閱讀 Rsshub 腳本
-
+## 進入代碼倉庫 https://github.com/ztony6688/ztony/
 > Rsshub Github 腳本 lib > v2
 
 https://github.com/DIYgod/RSSHub/tree/master/lib/v2
@@ -27,7 +27,7 @@ https://www.youtube.com/watch?v=Vp_iIft0XNI&list=PLliocbKHJNwvbitOJ73M04PUoJae79
 - https://space.bilibili.com/402806710/video?tid=0&page=1&keyword=&order=pubdate
 
 - 学渣弱小智:402806710
-- 
+
 ```js
 const got = require('@/utils/got');
 const cache = require('./cache');
@@ -80,6 +80,7 @@ module.exports = async (ctx) => {
 
 - Node.js 官網 https://nodejs.org/zh-cn/
 - 小馬課件 https://github.com/komavideo/LearnNodeJS.git
+- `git submodule add --depth=1 https://github.com/komavideo/LearnNodeJS.git .`
 - Node.js 版本管理 nvm
   - `brew install nvm`
   - `brew cleanup nvm`

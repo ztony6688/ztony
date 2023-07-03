@@ -123,7 +123,7 @@ const got = require(&#39;@/utils/got&#39;); const cache = require(&#39;./cache&#
     
   ],
   "articleBody": "閱讀 Rsshub 腳本 進入代碼倉庫 https://github.com/ztony6688/ztony/ Rsshub Github 腳本 lib \u003e v2\nhttps://github.com/DIYgod/RSSHub/tree/master/lib/v2\n具備 Javascript 語法閱讀能力 bilibili 視頻\nhttps://www.bilibili.com/video/BV1PV411d7XV/\nyoutube 視頻\nhttps://www.youtube.com/watch?v=Vp_iIft0XNI\u0026list=PLliocbKHJNwvbitOJ73M04PUoJae79kEg\nRsshub bilibili 腳本代碼 https://space.bilibili.com/402806710/video?tid=0\u0026page=1\u0026keyword=\u0026order=pubdate\n学渣弱小智:402806710\nconst got = require('@/utils/got'); const cache = require('./cache'); const utils = require('./utils'); module.exports = async (ctx) =\u003e { const uid = ctx.params.uid; const disableEmbed = ctx.params.disableEmbed; const cookie = await cache.getCookie(ctx); const verifyString = await cache.getVerifyString(ctx); const [name, face] = await cache.getUsernameAndFaceFromUID(ctx, uid); await got(`https://space.bilibili.com/${uid}/video?tid=0\u0026page=1\u0026keyword=\u0026order=pubdate`, { headers: { Referer: `https://space.bilibili.com/${uid}/`, Cookie: cookie, }, }); const params = utils.addVerifyInfo(`mid=${uid}\u0026ps=30\u0026tid=0\u0026pn=1\u0026keyword=\u0026order=pubdate\u0026platform=web\u0026web_location=1550101\u0026order_avoided=true`, verifyString); const response = await got(`https://api.bilibili.com/x/space/wbi/arc/search?${params}`, { headers: { Referer: `https://space.bilibili.com/${uid}/video?tid=0\u0026page=1\u0026keyword=\u0026order=pubdate`, Cookie: cookie, }, }); const data = response.data; ctx.state.data = { title: `${name} 的 bilibili 空间`, link: `https://space.bilibili.com/${uid}`, description: `${name} 的 bilibili 空间`, logo: face, icon: face, item: data.data \u0026\u0026 data.data.list \u0026\u0026 data.data.list.vlist \u0026\u0026 data.data.list.vlist.map((item) =\u003e ({ title: item.title, description: `${item.description}${!disableEmbed ? `\n${utils.iframe(item.aid)}` : ''}\n",
-  "wordCount" : "560",
+  "wordCount" : "564",
   "inLanguage": "en",
   "datePublished": "2023-07-03T08:55:33+08:00",
   "dateModified": "2023-07-03T08:55:33+08:00",
@@ -309,7 +309,8 @@ const got = require(&#39;@/utils/got&#39;); const cache = require(&#39;./cache&#
 <ul>
 <li>Node.js 官網 <a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></li>
 <li>小馬課件 <a href="https://github.com/komavideo/LearnNodeJS.git">https://github.com/komavideo/LearnNodeJS.git</a></li>
-<li><code>git submodule add --depth=1 https://github.com/komavideo/LearnNodeJS.git .</code></li>
+<li><code>git submodule add --depth=1 https://github.com/komavideo/LearnNodeJS.git</code></li>
+<li><code>git submodule update --init --recursive</code></li>
 <li>Node.js 版本管理 nvm
 <ul>
 <li><code>brew install nvm</code></li>

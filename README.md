@@ -1,1 +1,1 @@
-https://tony6688.github.io/ztonyhugo/
+https://ztony6688.github.io/ztony/

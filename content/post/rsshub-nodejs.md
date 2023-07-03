@@ -80,7 +80,8 @@ module.exports = async (ctx) => {
 
 - Node.js 官網 https://nodejs.org/zh-cn/
 - 小馬課件 https://github.com/komavideo/LearnNodeJS.git
-- `git submodule add --depth=1 https://github.com/komavideo/LearnNodeJS.git .`
+- `git submodule add --depth=1 https://github.com/komavideo/LearnNodeJS.git`
+- `git submodule update --init --recursive`
 - Node.js 版本管理 nvm
   - `brew install nvm`
   - `brew cleanup nvm`

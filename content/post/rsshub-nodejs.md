@@ -77,3 +77,135 @@ module.exports = async (ctx) => {
 };
 ```
 ## 搭建 NodeJs 環境 運行腳本模塊
+
+- Node.js 官網 https://nodejs.org/zh-cn/
+- 小馬課件 https://github.com/komavideo/LearnNodeJS.git
+- Node.js 版本管理 nvm
+  - `brew install nvm`
+  - `brew cleanup nvm`
+  - `vim ~/.zshrc`
+
+---
+```bash
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+```
+---
+
+```bash
+Please note that upstream has asked us to make explicit managing
+nvm via Homebrew is unsupported by them and you should check any
+problems against the standard nvm install method prior to reporting.
+
+You should create NVM's working directory if it doesn't exist:
+  mkdir ~/.nvm
+
+Add the following to your shell profile e.g. ~/.profile or ~/.zshrc:
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+You can set $NVM_DIR to any location, but leaving it unchanged from
+/usr/local/Cellar/nvm/0.39.3 will destroy any nvm-installed Node installations
+upon upgrade/reinstall.
+
+Type `nvm help` for further information.
+==> Summary
+🍺  /opt/homebrew/Cellar/nvm/0.39.3: 9 files, 190.6KB
+==> Running `brew cleanup nvm`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+```
+---
+
+## nvm  Node.js 版本管理器
+
+-  查看版本 `nvm --version`
+-  可安裝版本查詢 `nvm ls-remote`
+-  列表太長加過濾 `nvm ls-remot|grep v12`
+-  安裝指定版本 `nvm install v18.16.1`
+-  查看所有版本 `nvm ls`
+-  使用指定版本 `nvm use v18.16.1`
+-  設置默認版本 `nvm alias default v18.16.1`
+
+## npm && npx包管理工具
+
+### 小馬課程 交互式體驗
+
+- 進入終端交互 ` node `
+- 終端交互打印 `console.log("Node.js 輸出函數,等於 python print() 函數")`
+- 查看幫助 `.help`
+- 退出終端交互 `.exit`
+- 寫個簡單腳本 
+---
+```bash
+mkdir My-Node.js
+cd My-Node.js
+touch base.js
+vim base.js
+```
+---
+```javascript
+console.log("Node.js 輸出函數,等於 python print() 函數");
+
+var mystring =  "自定義變量 mystring 並且賦值 最終打印變量內容";
+
+console.log(mystring);
+```
+---
+- 粘貼上面代碼
+- 執行腳本 `node base.js` 
+
+
+### 小馬課程 堵塞 && 非堵塞
+
+- 堵塞 && 非堵塞
+- 並發 && 線程
+
+```javascript
+///////////////////
+// 堵塞代碼
+///////////////////
+function updb(){
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + 3000);
+}
+updb();
+console.log(new Date().getTime());
+console.log("上面跑完才順序輸出下面命令");
+console.log("這段代碼是一個流程,面向過程編程,堵塞代碼");
+console.log("分割線" + "=" * 30);
+///////////////////
+// 非堵塞代碼
+///////////////////
+function updb2(done){
+    setTimeout = (() => {done();},3000);
+}
+updb2(function (){
+    console.log("最後輸出,完成任務");
+});
+console.log("由於非堵塞,這段代碼會先輸出");
+```
+
+### 小馬課程 簡單 web 服務器
+
+- Node.js 內置的 `http` 模塊
+- `res.end()`輸出 html 代碼需要聲明 ``
+- 實戰代碼
+```javascript
+const http = require('http');
+
+const hostname =  '127.0.0.1';
+const port = 3000;
+
+const server = http.creatServer((req,res) => {
+    res.statusCode = 200;
+    res.setHeader('content-Type', 'text/html')
+    res.end('<meta charset="UTF-8"></meta>\n<h1>我是一號標題</h1>\n<h2>下面是列表</h2>\n<li>列表 1</li>\n<li>列表 2</li>\n<li>列表 3</li>');
+});
+
+server.listen(port,hostname,() => {
+    console.log(`點擊鏈接打開網頁 >>> http://${hostname}:${port}/`);
+});
+
+```

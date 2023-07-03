@@ -37,10 +37,18 @@ console.log("由於非堵塞,這段代碼會先輸出");
 ///////////////////
 // 簡單的 web 服務器
 ///////////////////
-const http = require('http');
 
-const hostname =  '127.0.0.1';
-const port = 3000;
+/// 接上導包課程 
+
+
+
+const http = require('http');
+const config = require("./config.js").config;
+
+
+// 棄用定義常量
+// const hostname =  '127.0.0.1';
+// const port = 3000;
 
 const server = http.createServer((req,res) => {
     res.statusCode = 200;
@@ -48,6 +56,6 @@ const server = http.createServer((req,res) => {
     res.end('<meta charset="UTF-8"></meta>\n<title>首頁</title><h1>我是一號標題</h1>\n<h2>下面是列表</h2>\n<li>列表 1</li>\n<li>列表 2</li>\n<li>列表 3</li>');
 });
 
-server.listen(port,hostname,() => {
-    console.log(`點擊鏈接打開網頁 >>> http://${hostname}:${port}/\n 按control + C 停止 web 服務` );
+server.listen(config.port,config.hostname,() => {
+    console.log(`點擊鏈接打開網頁 >>> http://${config.hostname}:${config.port}/\n 按control + C 停止 web 服務` );
 });

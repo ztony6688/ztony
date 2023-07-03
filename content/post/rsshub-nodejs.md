@@ -209,3 +209,22 @@ server.listen(port,hostname,() => {
 });
 
 ```
+### 小馬課程 引用外部 js 文件
+
+- 建立 config.js 並引用
+- 使用 server.js 引用 config.js
+
+```javascript
+//////////////
+// config.js
+/////////////
+const config = {
+    hostname : "127.0.0.1";
+    port : 3000
+};
+//////////////
+// 導包語句
+/////////////
+const config = require(./config.js).config;
+
+// 調用 config.hostname

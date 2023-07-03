@@ -13,7 +13,7 @@
       <pubDate>Mon, 03 Jul 2023 08:55:33 +0800</pubDate>
       
       <guid>https://ztony6688.github.io/ztony/post/rsshub-nodejs/</guid>
-      <description>閱讀 Rsshub 腳本 Rsshub Github 腳本 lib &amp;gt; v2
+      <description>閱讀 Rsshub 腳本 進入代碼倉庫 https://github.com/ztony6688/ztony/ Rsshub Github 腳本 lib &amp;gt; v2
 https://github.com/DIYgod/RSSHub/tree/master/lib/v2
 具備 Javascript 語法閱讀能力 bilibili 視頻
 https://www.bilibili.com/video/BV1PV411d7XV/
@@ -21,7 +21,7 @@ youtube 視頻
 https://www.youtube.com/watch?v=Vp_iIft0XNI&amp;amp;list=PLliocbKHJNwvbitOJ73M04PUoJae79kEg
 Rsshub bilibili 腳本代碼 https://space.bilibili.com/402806710/video?tid=0&amp;amp;page=1&amp;amp;keyword=&amp;amp;order=pubdate
 学渣弱小智:402806710
-const got = require(&amp;#39;@/utils/got&amp;#39;); const cache = require(&amp;#39;./cache&amp;#39;); const utils = require(&amp;#39;./utils&amp;#39;); module.exports = async (ctx) =&amp;gt; { const uid = ctx.params.uid; const disableEmbed = ctx.params.disableEmbed; const cookie = await cache.getCookie(ctx); const verifyString = await cache.getVerifyString(ctx); const [name, face] = await cache.getUsernameAndFaceFromUID(ctx, uid); await got(`https://space.bilibili.com/${uid}/video?tid=0&amp;amp;page=1&amp;amp;keyword=&amp;amp;order=pubdate`, { headers: { Referer: `https://space.</description>
+const got = require(&amp;#39;@/utils/got&amp;#39;); const cache = require(&amp;#39;./cache&amp;#39;); const utils = require(&amp;#39;./utils&amp;#39;); module.exports = async (ctx) =&amp;gt; { const uid = ctx.params.uid; const disableEmbed = ctx.params.disableEmbed; const cookie = await cache.getCookie(ctx); const verifyString = await cache.getVerifyString(ctx); const [name, face] = await cache.getUsernameAndFaceFromUID(ctx, uid); await got(`https://space.</description>
     </item>
     
     <item>
